@@ -8,6 +8,10 @@ function flipCard() {
     if (lockBoard) {
         return;
     }
+    
+    if (this == firstCard) {
+        return;
+    }
 
     this.classList.add('flip');
 
@@ -24,8 +28,10 @@ function flipCard() {
 }
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    let isMatch = firstCard.dataset.framework == secondCard.dataset.framework;
     isMatch ? disableCards() : unflipCards();
+
+    resetBoard();
 }
 
 function disableCards() {
@@ -47,3 +53,10 @@ function unflipCards() {
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
 });
+
+function resetBoard() {
+    firstCard = null;
+    secondCard = null;
+    hasFlippedCard = false;
+    lockBoard = false;
+}
