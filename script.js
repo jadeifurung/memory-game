@@ -4,6 +4,8 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+const cardCount = 12;
+
 function flipCard() {
     if (lockBoard) {
         return;
@@ -60,3 +62,17 @@ function resetBoard() {
     hasFlippedCard = false;
     lockBoard = false;
 }
+
+function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * cardCount);
+        card.style.order = randomPos;
+    });
+}
+
+function startGame() {
+    resetBoard();
+    shuffle();
+}
+
+window.onload = startGame();
