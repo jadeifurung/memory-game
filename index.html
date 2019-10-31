@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Memory Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script src="https://kit.fontawesome.com/40bbedf59c.js" crossorigin="anonymous"></script>
 </head>
@@ -14,16 +14,16 @@
         <h1>Memory Game</h1>
     </header>
     <section class="score-panel">
-        <ul class="stars">
-            <li id="first-star">
+        <ul>
+            <span class="star">
                 <i class="fas fa-star fa-lg"></i>
-            </li>
-            <li id="second-star">
+            </span>
+            <span class="star">
                 <i class="fas fa-star fa-lg"></i>
-            </li>
-            <li id="third-star">
+            </span>
+            <span class="star">
                 <i class="fas fa-star fa-lg"></i>
-            </li>
+            </span>
         </ul>
         <span id="moves"></span>
         <div id="timer"></div>
@@ -33,64 +33,67 @@
         </div>
     </section>
     <section class="memory-game">
-        <div class="memory-card" data-framework="react">
-            <img class="front-face" src="images/react.svg" alt="React" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="tortoise">
+            <img class="front-face" src="images/tortoise.svg" alt="Tortoise" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="react">
-            <img class="front-face" src="images/react.svg" alt="React" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="tortoise">
+            <img class="front-face" src="images/tortoise.svg" alt="Tortoise" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="angular">
-            <img class="front-face" src="images/angular.svg" alt="Angular" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="fire-flower">
+            <img class="front-face" src="images/fire-flower.svg" alt="Fire Flower" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="angular">
-            <img class="front-face" src="images/angular.svg" alt="Angular" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="fire-flower">
+            <img class="front-face" src="images/fire-flower.svg" alt="Fire Flower" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="images/aurelia.svg" alt="Aurelia" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="giant-squid">
+            <img class="front-face" src="images/giant-squid.svg" alt="Giant Squid" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="images/aurelia.svg" alt="Aurelia" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="giant-squid">
+            <img class="front-face" src="images/giant-squid.svg" alt="Giant Squid" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="backbone">
-            <img class="front-face" src="images/backbone.svg" alt="Backbone" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="dragon-head">
+            <img class="front-face" src="images/dragon-head.svg" alt="Dragon Head" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="backbone">
-            <img class="front-face" src="images/backbone.svg" alt="Backbone" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="dragon-head">
+            <img class="front-face" src="images/dragon-head.svg" alt="Dragon Head" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="ember">
-            <img class="front-face" src="images/ember.svg" alt="Ember" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="falcon-moon">
+            <img class="front-face" src="images/falcon-moon.svg" alt="Falcon Moon" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="ember">
-            <img class="front-face" src="images/ember.svg" alt="Ember" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="falcon-moon">
+            <img class="front-face" src="images/falcon-moon.svg" alt="Falcon Moon" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="vue">
-            <img class="front-face" src="images/vue.svg" alt="Vue" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="heptagram">
+            <img class="front-face" src="images/heptagram.svg" alt="Heptagram" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
-        <div class="memory-card" data-framework="vue">
-            <img class="front-face" src="images/vue.svg" alt="Vue" />
-            <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
+        <div class="memory-card" data-name="heptagram">
+            <img class="front-face" src="images/heptagram.svg" alt="Heptagram" />
+            <img class="back-face" src="images/round-star.svg" alt="Memory Card" />
         </div>
     </section>
     <div class="modal">
         <div class="modal-content">
-            <a class="close" href=# >x</a>
+            <a class="close" href=#>x</a>
             <h2>Congratulations!</h2>
 
             <div class="stats">
                 <p>You made <span id="total-moves"></span> moves</p>
                 <p>in <span id="total-time"></span></p>
-                <p>Rating: <span id="rating"></span></p>
+                <div id="rating-line">
+                    <p>Rating: </p><p id="rating"></p>
+                </div>
+                
                 <button id="play-again">
                     Play Again
                 </button>
