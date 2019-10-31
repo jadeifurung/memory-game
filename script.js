@@ -1,19 +1,11 @@
-const firstStar = document.getElementById("first-star");
-const secondStar = document.getElementById("second-star");
-const thirdStar = document.getElementById("third-star");
-const counter = document.getElementById("moves");
+const moves = document.getElementById("moves");
 const timer = document.getElementById("timer");
-const restartBtn = document.getElementById("restart");
 const cards = document.querySelectorAll(".memory-card");
 const modal = document.querySelector(".modal");
-const totalMoves = document.getElementById("total-moves");
-const totalTime = document.getElementById("total-time");
-const rating = document.getElementById("rating");
-const closeBtn = document.querySelector(".close");
-const playAgainBtn = document.getElementById("play-again");
+const stars = document.querySelectorAll(".star");
 
 let timerInterval;
-const cardCount = 12;
+const cardCount = cards.length;
 let moveCount = 0;
 let matchCount = 0;
 let seconds = 0;
@@ -23,9 +15,13 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+const restartBtn = document.getElementById("restart");
+const closeBtn = document.querySelector(".close");
+const playAgainBtn = document.getElementById("play-again");
+
 restartBtn.onclick = startGame;
 playAgainBtn.onclick = startGame;
-closeBtn.onclick = modal.classList.remove("show");
+closeBtn.onclick = hideModal;
 
 function flipCard() {
     if (lockBoard) {
@@ -52,7 +48,7 @@ function flipCard() {
 }
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.framework == secondCard.dataset.framework;
+    let isMatch = firstCard.dataset.name == secondCard.dataset.name;
     isMatch ? disableCards() : unflipCards();
 }
 
@@ -80,9 +76,6 @@ function unflipCards() {
     }, 1500)
 }
 
-cards.forEach(card => {
-    card.addEventListener('click', flipCard);
-});
 
 function resetBoard() {
     firstCard = null;
@@ -100,6 +93,14 @@ function shuffle() {
 
 function startGame() {
     modal.classList.remove("show");
+
+    cards.forEach(card => {
+        card.addEventListener('click', flipCard);
+        card.classList.remove("flip");
+    });
+    
+    matchCount = 0;
+    rating.innerHTML = "";
     
     resetBoard();
     shuffle();
@@ -107,33 +108,33 @@ function startGame() {
 }
 
 function resetHeader() {
-    secondStar.style.visibility = 'visible';
-    thirdStar.style.visibility = 'visible';
+    stars[1].style.visibility = 'visible';
+    stars[2].style.visibility = 'visible';
 
     moveCount = 0;
     minutes = 0;
     seconds = 0;
     clearInterval(timerInterval);
 
-    counter.innerHTML = moveCount + " move(s)";
+    moves.innerHTML = moveCount + " move(s)";
     timer.innerHTML = minutes + " mins " + seconds + " seconds ";
 }
 
 function countMove() {
     moveCount++;
-    counter.innerHTML = moveCount + " move(s)";
+    moves.innerHTML = moveCount + " move(s)";
 
     // start timer on first move
     if (moveCount == 1) {
         startTimer();
     }
 
-    // setting rating based on number of moves
-    // if (moveCount > 6 && moveCount < 10) {
-    //     thirdStar.style.visibility = 'hidden';
-    // } else if (moveCount >= 10) {
-    //     secondStar.style.visibility = 'hidden';
-    // }
+    // set rating based on number of moves
+    if (moveCount > 6 && moveCount < 10) {
+        stars[2].style.visibility = 'hidden';
+    } else if (moveCount >= 10) {
+        stars[1].style.visibility = 'hidden';
+    }
 }
 
 function startTimer() {
@@ -151,13 +152,30 @@ function startTimer() {
 }
 
 function showModal() {
-    const stars = document.querySelector(".stars");
+    const totalMoves = document.getElementById("total-moves");
+    const totalTime = document.getElementById("total-time");
+    let rating = document.getElementById("rating");
+    
 
     totalMoves.innerHTML = moveCount;
     totalTime.innerHTML = timer.innerHTML;
-    rating.innerHTML = firstStar.innerHTML + secondStar.innerHTML + thirdStar.innerHTML;
+
+    
+    stars.forEach(star => {
+        if (star.style.visibility != 'hidden') {
+            rating.innerHTML += star.innerHTML;
+        }
+    });
+    
+    
+    rating.style.listStyle = "none";
+    rating.style.display = "flex";
 
     modal.classList.add("show");
+}
+
+function hideModal() {
+    modal.classList.remove("show");
 }
 
 window.onload = startGame();
