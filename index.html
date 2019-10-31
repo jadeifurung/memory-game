@@ -4,10 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Memory Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="https://kit.fontawesome.com/40bbedf59c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <header>
+        <h1>Memory Game</h1>
+    </header>
+    <section class="score-panel">
+        <ul class="stars">
+            <li id="first-star">
+                <i class="fas fa-star fa-lg"></i>
+            </li>
+            <li id="second-star">
+                <i class="fas fa-star fa-lg"></i>
+            </li>
+            <li id="third-star">
+                <i class="fas fa-star fa-lg"></i>
+            </li>
+        </ul>
+        <span id="moves"></span>
+        <div id="timer"></div>
+        <!-- <div class="restart" onclick="startGame()"> -->
+        <div id="restart">
+            <i class="fas fa-redo-alt"></i>
+        </div>
+    </section>
     <section class="memory-game">
         <div class="memory-card" data-framework="react">
             <img class="front-face" src="images/react.svg" alt="React" />
@@ -58,6 +82,21 @@
             <img class="back-face" src="images/js-badge.svg" alt="Memory Card" />
         </div>
     </section>
+    <div class="modal">
+        <div class="modal-content">
+            <a class="close" href=# >x</a>
+            <h2>Congratulations!</h2>
+
+            <div class="stats">
+                <p>You made <span id="total-moves"></span> moves</p>
+                <p>in <span id="total-time"></span></p>
+                <p>Rating: <span id="rating"></span></p>
+                <button id="play-again">
+                    Play Again
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>
