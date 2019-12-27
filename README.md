@@ -10,3 +10,13 @@ Memory game clone built with Vanilla JS.
 * The game is over when all pairs are found
 
 **Try to find the pairs in as less moves as possible to get a better rate!**
+
+## Features
+* Move counter
+* Timer
+* Rating system (based on number of moves)
+* Restart button
+
+## Screenshot
+<img src="./images/ss-readme-memory-game.png"
+    alt="Screenshot" />
